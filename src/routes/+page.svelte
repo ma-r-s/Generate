@@ -66,7 +66,8 @@
 		let docx = new DocxMerger({}, fin);
 		// Write the code here
 		docx.save('blob', function (data) {
-			FileSaver.saveAs(data, 'output.docx');
+			console.log(Object.keys(json[0])[date]);
+			FileSaver.saveAs(data, 'Facturas-' + Object.keys(json[0])[date] + '.docx');
 		});
 		// Save the Blob as a file using FileSaver
 	};
