@@ -99,7 +99,7 @@
 					...
 				{/if}
 			{:else}
-				Formato Word
+				Formato Factura
 			{/if}
 		</label>
 
