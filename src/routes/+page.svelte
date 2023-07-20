@@ -47,9 +47,9 @@
 			const consumed = actual - past;
 			json[i]['consumed'] = consumed;
 			const price = Object.values(json[0])[date];
-			json[i]['ppu'] = price.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+			json[i]['ppu'] = price.toLocaleString('en-US', { style: 'currency', currency: 'COP' });
 			const value = Math.ceil(consumed * price);
-			json[i]['value'] = value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+			json[i]['value'] = value.toLocaleString('en-US', { style: 'currency', currency: 'COP' });
 
 			// Clone the template for each page
 
