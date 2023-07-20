@@ -99,7 +99,7 @@
 					...
 				{/if}
 			{:else}
-				Seleccionar plantilla
+				Formato Word
 			{/if}
 		</label>
 
@@ -113,7 +113,7 @@
 					...
 				{/if}
 			{:else}
-				Seleccionar tabla
+				Tabla lecturas
 			{/if}
 		</label>
 		<button on:click={process} class="btn btn-primary {table && document ? '' : 'btn-disabled'}">
