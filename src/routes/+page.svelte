@@ -53,6 +53,13 @@
 				maximumFractionDigits: 0
 			});
 			const value = Math.ceil(consumed * price);
+			const alcantarillado = 10000;
+			const valueTotal = value + alcantarillado;
+			json[i]['valueTotal'] = valueTotal.toLocaleString('en-US', {
+				style: 'currency',
+				currency: 'USD',
+				maximumFractionDigits: 0
+			});
 			json[i]['value'] = value.toLocaleString('en-US', {
 				style: 'currency',
 				currency: 'USD',
