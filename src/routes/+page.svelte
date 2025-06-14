@@ -40,6 +40,29 @@
 			const actual = Object.values(json[i])[date];
 			json[i]['actualReading'] = actual;
 
+			// Extract month from actualDate (format: DD/M/YYYY)
+			const dateParts = json[i]['actualDate'].split('/');
+			if (dateParts.length === 3) {
+				const monthNames = [
+					'Enero',
+					'Febrero',
+					'Marzo',
+					'Abril',
+					'Mayo',
+					'Junio',
+					'Julio',
+					'Agosto',
+					'Septiembre',
+					'Octubre',
+					'Noviembre',
+					'Diciembre'
+				];
+				const monthIndex = parseInt(dateParts[1]) - 1; // Convert to 0-indexed
+				json[i]['actualMonth'] = monthNames[monthIndex];
+			} else {
+				json[i]['actualMonth'] = ''; // Default value if date format is unexpected
+			}
+
 			json[i]['pastDate'] = Object.keys(json[0])[date - 1];
 			const past = Object.values(json[i])[date - 1];
 			json[i]['pastReading'] = past;
