@@ -41,26 +41,30 @@
 			json[i]['actualReading'] = actual;
 
 			// Extract month from actualDate (format: DD/M/YYYY)
-			const dateParts = json[i]['actualDate'].split('/');
-			if (dateParts.length === 3) {
-				const monthNames = [
-					'Enero',
-					'Febrero',
-					'Marzo',
-					'Abril',
-					'Mayo',
-					'Junio',
-					'Julio',
-					'Agosto',
-					'Septiembre',
-					'Octubre',
-					'Noviembre',
-					'Diciembre'
-				];
-				const monthIndex = parseInt(dateParts[1]) - 1; // Convert to 0-indexed
-				json[i]['actualMonth'] = monthNames[monthIndex];
+			if (json[i]['actualDate'] && typeof json[i]['actualDate'] === 'string') {
+				const dateParts = json[i]['actualDate'].split('/');
+				if (dateParts.length === 3) {
+					const monthNames = [
+						'Enero',
+						'Febrero',
+						'Marzo',
+						'Abril',
+						'Mayo',
+						'Junio',
+						'Julio',
+						'Agosto',
+						'Septiembre',
+						'Octubre',
+						'Noviembre',
+						'Diciembre'
+					];
+					const monthIndex = parseInt(dateParts[1]) - 1; // Convert to 0-indexed
+					json[i]['actualMonth'] = monthNames[monthIndex];
+				} else {
+					json[i]['actualMonth'] = ''; // Default value if date format is unexpected
+				}
 			} else {
-				json[i]['actualMonth'] = ''; // Default value if date format is unexpected
+				json[i]['actualMonth'] = ''; // Default if actualDate is undefined or not a string
 			}
 
 			json[i]['pastDate'] = Object.keys(json[0])[date - 1];
